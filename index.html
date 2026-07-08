@@ -42,7 +42,15 @@
   .sources a { color: #185FA5; }
   .chips { display: flex; flex-wrap: wrap; gap: 4px; }
   .chip { font-size: 10px; background: #fff; border: 1px solid #D3D1C7; padding: 2px 8px; border-radius: 12px; color: #5F5E5A; }
-  .finance-section { background: #F9F8F5; border-radius: 8px; padding: 14px; height: 100%; box-sizing: border-box; }
+  .chip-committee { background: #F1EFE8; }
+  .finance-section { background: #F9F8F5; border-radius: 8px; padding: 14px; margin-bottom: 12px; }
+  .spending-section { background: #F9F8F5; border-radius: 8px; padding: 14px; }
+  .spend-row { display: grid; grid-template-columns: 1fr auto auto auto; gap: 8px; align-items: center;
+                font-size: 11px; margin-bottom: 6px; }
+  .spend-committee { color: #2C2C2A; }
+  .spend-candidate { color: #5F5E5A; }
+  .spend-stance { padding: 2px 6px; border-radius: 4px; font-size: 10px; text-transform: capitalize; }
+  .spend-amount { font-weight: 600; text-align: right; min-width: 70px; }
   .section-label { font-size: 10px; color: #888780; margin: 0 0 6px; text-transform: uppercase; letter-spacing: 0.04em; font-weight: 600; }
   .section-label a { text-transform: none; letter-spacing: normal; font-weight: 400; color: #185FA5; }
   .bar-row { display: flex; align-items: center; gap: 8px; margin-bottom: 5px; font-size: 11px; }
@@ -159,6 +167,10 @@
       <p class="storyline">The Sullivan race has been dominated by a controversy over a same-named challenger, Dan J. Sullivan of Petersburg, whose late-filed candidacy Republicans and the incumbent's campaign allege was designed to confuse voters and siphon support to help Democrat Mary Peltola. Alaska's Division of Elections initially disqualified the challenger, but courts—first a Superior Court judge and then the Alaska Supreme Court—ordered him reinstated on the primary ballot, while the NRSC filed an FEC complaint alleging coordination between the challenger and a Democratic consultant. NBC News has since reported that the FBI, the Alaska attorney general's office, and the U.S. attorney's office are investigating whether the challenger's campaign was part of a conspiracy to confuse voters, though Peltola's campaign has denied any involvement. The episode has unfolded alongside a broader, closely watched contest between Sullivan and Peltola that both parties view as pivotal to Senate control in 2026.</p><p class="sources"><a href="https://www.nbcnews.com/politics/2026-election/dan-sullivan-saga-alaska-senate-race-investigation-sources-say-rcna352679" target="_blank" rel="noopener">source</a> &middot; <a href="https://alaskapublic.org/news/politics/2026-06-26/judge-puts-2nd-dan-sullivan-back-on-ballot-in-alaskas-u-s-senate-race" target="_blank" rel="noopener">source</a> &middot; <a href="https://news.ballotpedia.org/2026/06/30/alaska-supreme-court-rules-that-dan-sullivan-must-appear-on-the-states-u-s-senate-ballot-this-year/" target="_blank" rel="noopener">source</a></p>
       <p class="section-label" style="margin-top:10px;">Endorsements</p>
       <div class="chips"><span class="chip">President Donald Trump</span><span class="chip">Sen. Lisa Murkowski</span><span class="chip">National Republican Senatorial Committee</span><span class="chip">Alaska Republican Party</span><span class="chip">ANCSA Regional Association</span><span class="chip">Americans for Prosperity Action</span></div>
+      
+    <p class="section-label" style="margin-top:10px;">Committee assignments</p>
+    <div class="chips"><span class="chip chip-committee">Senate Environment and Public Works Committee</span><span class="chip chip-committee">Senate Veterans' Affairs Committee</span></div>
+    
     </div>
     
     <div class="candidate">
@@ -175,10 +187,12 @@
       <p class="storyline">The race has been defined by its unusual competitiveness for a heavily Republican-leaning state, with polling showing the contest within a few points throughout the year. A late-June/early-July New York Times/Siena poll found Sullivan leading Peltola 47%-45% among likely voters, a result that contradicted Peltola campaign messaging and differed from Alaska Survey Research polls showing Peltola with a roughly five-point lead. The race has also been shaped by Sen. Lisa Murkowski's decision to back Sullivan despite having endorsed Peltola in the past and describing her as a long-time friend, saying she believes keeping a Republican Senate majority is in Alaska's best interest. Additional coverage has focused on a separate ballot controversy involving a like-named Republican challenger, Dan J. Sullivan, whom Sen. Sullivan's campaign called a 'sham candidate' after he was initially removed from and then restored to the ballot by courts.</p><p class="sources"><a href="https://alaskawatchman.com/2026/07/01/sullivan-holds-slim-lead-over-peltola-in-nyt-alaska-senate-poll/" target="_blank" rel="noopener">source</a> &middot; <a href="https://thealaskastory.com/nyt-siena-poll-shows-sullivan-ahead-in-alaska-senate-race-contradicting-peltola-campaigns-claims/" target="_blank" rel="noopener">source</a> &middot; <a href="https://alaskabeacon.com/2026/01/12/mary-peltola-announces-run-for-alaska-u-s-senate-challenging-incumbent-dan-sullivan/" target="_blank" rel="noopener">source</a></p>
       <p class="section-label" style="margin-top:10px;">Endorsements</p>
       <div class="chips"><span class="chip">EMILYs List</span><span class="chip">End Citizens United</span><span class="chip">SEIU 775</span><span class="chip">Alaska Democratic Party (Chair Eric Croft)</span></div>
+      
     </div>
     </div>
       <div class="bottom-grid">
         <div>
+          
     <div class="finance-section">
       <p class="section-label">Cash on hand</p>
       
@@ -209,7 +223,70 @@
     </div>
     
     </div>
+    
+          
+    <div class="spending-section">
+      <p class="section-label">Outside spending (largest filings, not a complete total)</p>
+      
+        <div class="spend-row">
+          <span class="spend-committee">LAST FRONTIER PAC</span>
+          <span class="spend-candidate">Peltola</span>
+          <span class="spend-stance" style="background:#FAECE7;color:#A33A2E;">oppose</span>
+          <span class="spend-amount">$1,567,531</span>
+        </div>
+        
+        <div class="spend-row">
+          <span class="spend-committee">SLF PAC</span>
+          <span class="spend-candidate">Sullivan</span>
+          <span class="spend-stance" style="background:#EAF3DE;color:#3B6D11;">support</span>
+          <span class="spend-amount">$515,895</span>
+        </div>
+        
+        <div class="spend-row">
+          <span class="spend-committee">AMERICANS FOR PROSPERITY ACTION, INC. (AFP ACTION) DBA CVA ACTION AND DBA LIBRE ACTION</span>
+          <span class="spend-candidate">Sullivan</span>
+          <span class="spend-stance" style="background:#EAF3DE;color:#3B6D11;">support</span>
+          <span class="spend-amount">$420,451</span>
+        </div>
+        
+        <div class="spend-row">
+          <span class="spend-committee">SLF PAC</span>
+          <span class="spend-candidate">Peltola</span>
+          <span class="spend-stance" style="background:#FAECE7;color:#A33A2E;">oppose</span>
+          <span class="spend-amount">$82,032</span>
+        </div>
+        
+        <div class="spend-row">
+          <span class="spend-committee">INDIVISIBLE ACTION</span>
+          <span class="spend-candidate">Sullivan</span>
+          <span class="spend-stance" style="background:#FAECE7;color:#A33A2E;">oppose</span>
+          <span class="spend-amount">$30,952</span>
+        </div>
+        
+        <div class="spend-row">
+          <span class="spend-committee">BLUE BATTLEGROUND PROJECT</span>
+          <span class="spend-candidate">Peltola</span>
+          <span class="spend-stance" style="background:#EAF3DE;color:#3B6D11;">support</span>
+          <span class="spend-amount">$10,000</span>
+        </div>
+        
+        <div class="spend-row">
+          <span class="spend-committee">FORWARD BLUE</span>
+          <span class="spend-candidate">Peltola</span>
+          <span class="spend-stance" style="background:#EAF3DE;color:#3B6D11;">support</span>
+          <span class="spend-amount">$1,000</span>
+        </div>
+        
+        <div class="spend-row">
+          <span class="spend-committee">GIVEGREEN UNITED ACTION</span>
+          <span class="spend-candidate">Peltola</span>
+          <span class="spend-stance" style="background:#EAF3DE;color:#3B6D11;">support</span>
+          <span class="spend-amount">$259</span>
+        </div>
+        
     </div>
+    
+        </div>
         <div>
           <div class="polling-section">
             <p class="section-label">Recent polling</p>
@@ -281,6 +358,10 @@
       <p class="storyline">The defining story in the race has shifted from Collins herself to the turmoil in the Democratic field: nominee Graham Platner, who won the June 9 primary after Gov. Janet Mills suspended her campaign, is facing a new sexual assault allegation that he denies, prompting numerous Democratic leaders and groups, including VoteVets and the Working Families Party, to rescind endorsements and call on him to withdraw. Collins has largely stayed above the fray while touting her seniority and Appropriations Committee chairmanship, and has received supportive comments from President Trump, who has said he would campaign for her. Coverage from the Washington Post, Axios, CNBC, and the Associated Press has focused heavily on whether Platner will remain in the race and who might replace him if he exits, given Maine's status as one of the most competitive Senate contests of the cycle.</p><p class="sources"><a href="https://www.washingtonpost.com/politics/2026/07/06/top-democrats-pull-graham-platner-endorsements-call-him-end-maine-senate-campaign/" target="_blank" rel="noopener">source</a> &middot; <a href="https://www.axios.com/2026/07/06/graham-platner-democrats-maine-senate-susan-collins" target="_blank" rel="noopener">source</a> &middot; <a href="https://www.cnbc.com/2026/07/06/graham-platner-maine-senate-allegation-response.html" target="_blank" rel="noopener">source</a></p>
       <p class="section-label" style="margin-top:10px;">Endorsements</p>
       <div class="chips"><span class="chip">Donald Trump</span><span class="chip">National Republican Senatorial Committee</span><span class="chip">Republican National Committee</span></div>
+      
+    <p class="section-label" style="margin-top:10px;">Committee assignments</p>
+    <div class="chips"><span class="chip chip-committee">Chair, Senate Appropriations Committee</span></div>
+    
     </div>
     
     <div class="candidate">
@@ -297,10 +378,12 @@
       <p class="storyline">Platner's campaign has been upended by a Politico report in which Jenny Racicot, a woman he previously dated, alleged he forced himself on her sexually in 2021; Platner has denied the allegation as "categorically false" while saying he is taking time to "reflect on the best path forward" for his candidacy. In response, a wave of prominent Democratic endorsers—including Senate Democratic leader Chuck Schumer, DSCC chair Kirsten Gillibrand, Sens. Ruben Gallego and Elizabeth Warren, Rep. Ro Khanna, and the Maine Democratic Party—rescinded their support and called for him to withdraw, and Sen. Bernie Sanders, one of his earliest and most prominent backers, said he had recommended Platner step aside. Under Maine law Platner would need to withdraw by July 13 for the state Democratic Party to name a replacement nominee by July 27, and press coverage has focused on potential replacement candidates such as Troy Jackson and Shenna Bellows.</p><p class="sources"><a href="https://www.nbcnews.com/politics/2026-election/graham-platner-best-path-forward-maine-senate-rcna353222" target="_blank" rel="noopener">source</a> &middot; <a href="https://www.cnn.com/2026/07/06/politics/graham-platner-allegations-maine-senate-race" target="_blank" rel="noopener">source</a> &middot; <a href="https://www.washingtonpost.com/politics/2026/07/06/top-democrats-pull-graham-platner-endorsements-call-him-end-maine-senate-campaign/" target="_blank" rel="noopener">source</a></p>
       <p class="section-label" style="margin-top:10px;">Endorsements</p>
       <p class="muted">None on file</p>
+      
     </div>
     </div>
       <div class="bottom-grid">
         <div>
+          
     <div class="finance-section">
       <p class="section-label">Cash on hand</p>
       
@@ -331,7 +414,70 @@
     </div>
     
     </div>
+    
+          
+    <div class="spending-section">
+      <p class="section-label">Outside spending (largest filings, not a complete total)</p>
+      
+        <div class="spend-row">
+          <span class="spend-committee">PINE TREE RESULTS PAC</span>
+          <span class="spend-candidate">Platner</span>
+          <span class="spend-stance" style="background:#FAECE7;color:#A33A2E;">oppose</span>
+          <span class="spend-amount">$14,722,548</span>
+        </div>
+        
+        <div class="spend-row">
+          <span class="spend-committee">SLF PAC</span>
+          <span class="spend-candidate">Collins</span>
+          <span class="spend-stance" style="background:#EAF3DE;color:#3B6D11;">support</span>
+          <span class="spend-amount">$1,144,803</span>
+        </div>
+        
+        <div class="spend-row">
+          <span class="spend-committee">LEAD MAINE COMMITTEE, INC.</span>
+          <span class="spend-candidate">Collins</span>
+          <span class="spend-stance" style="background:#EAF3DE;color:#3B6D11;">support</span>
+          <span class="spend-amount">$1,122,162</span>
+        </div>
+        
+        <div class="spend-row">
+          <span class="spend-committee">STRONGER MAINE</span>
+          <span class="spend-candidate">Collins</span>
+          <span class="spend-stance" style="background:#EAF3DE;color:#3B6D11;">support</span>
+          <span class="spend-amount">$1,072,619</span>
+        </div>
+        
+        <div class="spend-row">
+          <span class="spend-committee">CLEARPATH ACTION FUND, INC.</span>
+          <span class="spend-candidate">Collins</span>
+          <span class="spend-stance" style="background:#EAF3DE;color:#3B6D11;">support</span>
+          <span class="spend-amount">$738,947</span>
+        </div>
+        
+        <div class="spend-row">
+          <span class="spend-committee">SLF PAC</span>
+          <span class="spend-candidate">Platner</span>
+          <span class="spend-stance" style="background:#FAECE7;color:#A33A2E;">oppose</span>
+          <span class="spend-amount">$250,000</span>
+        </div>
+        
+        <div class="spend-row">
+          <span class="spend-committee">COMMON DEFENSE ACTION FUND</span>
+          <span class="spend-candidate">Platner</span>
+          <span class="spend-stance" style="background:#EAF3DE;color:#3B6D11;">support</span>
+          <span class="spend-amount">$219,000</span>
+        </div>
+        
+        <div class="spend-row">
+          <span class="spend-committee">LEAD MAINE COMMITTEE, INC.</span>
+          <span class="spend-candidate">Platner</span>
+          <span class="spend-stance" style="background:#FAECE7;color:#A33A2E;">oppose</span>
+          <span class="spend-amount">$102,625</span>
+        </div>
+        
     </div>
+    
+        </div>
         <div>
           <div class="polling-section">
             <p class="section-label">Recent polling</p>
@@ -402,7 +548,11 @@
       <p class="section-label" style="margin-top:10px;">Current storyline</p>
       <p class="storyline">Husted, running to keep the seat he was appointed to, faces Democratic former Senator Sherrod Brown in a race widely rated a toss-up despite Ohio's recent Republican lean. Husted secured President Trump's early endorsement and has emphasized ties to Trump in his campaign advertising, while also touting several labor union endorsements he flipped from Brown's 2024 coalition. Public polling has been volatile and conflicting, with some surveys (Fox News, AARP) showing Brown ahead by several points and others (New York Times/Siena, Emerson) showing Husted with a narrow lead, underscoring how competitive the contest has become. In March 2026, Husted also testified for the defense in the FirstEnergy bribery scandal criminal trial, describing a 2018 dinner meeting with then governor-elect DeWine and FirstEnergy executives later indicted in the $60 million bribery scheme.</p><p class="sources"><a href="https://www.newsweek.com/sherrod-brown-jon-husted-ohio-senate-race-poll-12122669" target="_blank" rel="noopener">source</a> &middot; <a href="https://thehill.com/homenews/campaign/5909836-ohio-senate-race-brown-husted/" target="_blank" rel="noopener">source</a> &middot; <a href="https://www.nbc4i.com/news/local-news/columbus/new-poll-finds-husted-narrowly-leading-brown-ohio-governors-race-tied/" target="_blank" rel="noopener">source</a></p>
       <p class="section-label" style="margin-top:10px;">Endorsements</p>
-      <div class="chips"><span class="chip">President Donald Trump</span><span class="chip">Ohio Republican Party</span><span class="chip">Ohio Senate Republican Caucus</span><span class="chip">Ohio Auditor Keith Faber</span><span class="chip">Rep. Max Miller</span><span class="chip">Rep. Warren Davidson</span><span class="chip">Rep. Dave Joyce</span><span class="chip">Rep. Bob Latta</span><span class="chip">Rep. Jim Jordan</span><span class="chip">Rep. Troy Balderson</span><span class="chip">Ohio Cattlemen's Association</span><span class="chip">NFIB (National Federation of Independent Business)</span><span class="chip">Susan B. Anthony Pro-Life America</span><span class="chip">Ohio Right to Life</span><span class="chip">Sentinel Action Fund</span><span class="chip">International Union of Operating Engineers Local 18</span><span class="chip">International Union of Operating Engineers Local 66</span><span class="chip">Northwest Ohio Building and Construction Trades Council</span></div>
+      <div class="chips"><span class="chip">President Donald Trump</span><span class="chip">Ohio Republican Party</span><span class="chip">NFIB (National Federation of Independent Business)</span><span class="chip">Susan B. Anthony Pro-Life America</span><span class="chip">Sentinel Action Fund</span></div>
+      
+    <p class="section-label" style="margin-top:10px;">Committee assignments</p>
+    <div class="chips"><span class="chip chip-committee">Senate Appropriations Committee</span><span class="chip chip-committee">Senate Environment and Public Works Committee</span><span class="chip chip-committee">Senate Health, Education, Labor and Pensions Committee</span><span class="chip chip-committee">Senate Small Business and Entrepreneurship Committee</span><span class="chip chip-committee">Senate Special Committee on Aging</span></div>
+    
     </div>
     
     <div class="candidate">
@@ -419,10 +569,12 @@
       <p class="storyline">Brown, attempting a political comeback after his 2024 loss, is running against Republican incumbent Jon Husted (appointed to the seat after JD Vance became vice president) in a race both parties see as pivotal to Senate control. The campaign has centered on affordability and health care, with Brown attacking Husted over ACA subsidy votes and rising prices while Husted blames Brown's 32-year Washington record for current problems. In June 2026, both campaigns ran dueling ads accusing each other's donors of ties to Jeffrey Epstein associates, a story fact-checked by PolitiFact. Brown has maintained a fundraising advantage, reporting far more cash on hand than Husted, even as the two campaigns and outside groups are expected to spend record sums in what is being called one of the most expensive Senate races in the country.</p><p class="sources"><a href="https://www.notus.org/ohio/affordability-sherrod-brown-jon-husted-senate-ads" target="_blank" rel="noopener">source</a> &middot; <a href="https://www.statenews.org/government-politics/2025-12-31/ohios-2026-us-senate-race-husted-brown-focus-in-on-health-care-cost" target="_blank" rel="noopener">source</a> &middot; <a href="https://www.politifact.com/article/2026/jun/08/epstein-ohio-senate-husted-brown-donations/" target="_blank" rel="noopener">source</a></p>
       <p class="section-label" style="margin-top:10px;">Endorsements</p>
       <div class="chips"><span class="chip">Ohio AFL-CIO</span><span class="chip">Ohio Federation of Teachers (OFT)</span><span class="chip">United Steelworkers</span><span class="chip">Actors' Equity Association</span><span class="chip">Chuck Schumer (Senate Minority Leader, recruited Brown to run)</span></div>
+      
     </div>
     </div>
       <div class="bottom-grid">
         <div>
+          
     <div class="finance-section">
       <p class="section-label">Cash on hand</p>
       
@@ -453,7 +605,70 @@
     </div>
     
     </div>
+    
+          
+    <div class="spending-section">
+      <p class="section-label">Outside spending (largest filings, not a complete total)</p>
+      
+        <div class="spend-row">
+          <span class="spend-committee">AMERICANS FOR PROSPERITY ACTION, INC. (AFP ACTION) DBA CVA ACTION AND DBA LIBRE ACTION</span>
+          <span class="spend-candidate">Husted</span>
+          <span class="spend-stance" style="background:#EAF3DE;color:#3B6D11;">support</span>
+          <span class="spend-amount">$3,005,741</span>
+        </div>
+        
+        <div class="spend-row">
+          <span class="spend-committee">AMERICANS FOR PROSPERITY ACTION, INC. (AFP ACTION) DBA CVA ACTION AND DBA LIBRE ACTION</span>
+          <span class="spend-candidate">Brown</span>
+          <span class="spend-stance" style="background:#FAECE7;color:#A33A2E;">oppose</span>
+          <span class="spend-amount">$1,525,171</span>
+        </div>
+        
+        <div class="spend-row">
+          <span class="spend-committee">OHIO FLYER PAC</span>
+          <span class="spend-candidate">Brown</span>
+          <span class="spend-stance" style="background:#FAECE7;color:#A33A2E;">oppose</span>
+          <span class="spend-amount">$1,323,023</span>
+        </div>
+        
+        <div class="spend-row">
+          <span class="spend-committee">SLF PAC</span>
+          <span class="spend-candidate">Husted</span>
+          <span class="spend-stance" style="background:#EAF3DE;color:#3B6D11;">support</span>
+          <span class="spend-amount">$1,195,552</span>
+        </div>
+        
+        <div class="spend-row">
+          <span class="spend-committee">SLF PAC</span>
+          <span class="spend-candidate">Brown</span>
+          <span class="spend-stance" style="background:#FAECE7;color:#A33A2E;">oppose</span>
+          <span class="spend-amount">$836,486</span>
+        </div>
+        
+        <div class="spend-row">
+          <span class="spend-committee">WIN IT BACK PAC</span>
+          <span class="spend-candidate">Husted</span>
+          <span class="spend-stance" style="background:#EAF3DE;color:#3B6D11;">support</span>
+          <span class="spend-amount">$500,682</span>
+        </div>
+        
+        <div class="spend-row">
+          <span class="spend-committee">CLEARPATH ACTION FUND, INC.</span>
+          <span class="spend-candidate">Husted</span>
+          <span class="spend-stance" style="background:#EAF3DE;color:#3B6D11;">support</span>
+          <span class="spend-amount">$92,660</span>
+        </div>
+        
+        <div class="spend-row">
+          <span class="spend-committee">FORWARD BLUE</span>
+          <span class="spend-candidate">Brown</span>
+          <span class="spend-stance" style="background:#EAF3DE;color:#3B6D11;">support</span>
+          <span class="spend-amount">$16,100</span>
+        </div>
+        
     </div>
+    
+        </div>
         <div>
           <div class="polling-section">
             <p class="section-label">Recent polling</p>
@@ -499,7 +714,7 @@
       <p class="footer-note">Last updated Jul 7, 2026 7:15 PM ET</p>
     </div>
     
-  <p class="generated">Site generated Jul 7, 2026 11:32 PM ET</p>
+  <p class="generated">Site generated Jul 8, 2026 10:21 AM ET</p>
 </div>
 </body>
 </html>
