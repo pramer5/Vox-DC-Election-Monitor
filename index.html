@@ -7,21 +7,30 @@
 <title>Vox DC - 2026 Election Tracker</title>
 <style>
   body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-          background: #F1EFE8; margin: 0; padding: 2rem 1rem; color: #2C2C2A; }
-  .page { max-width: 700px; margin: 0 auto; }
-  h1 { font-size: 20px; font-weight: 600; margin-bottom: 4px; }
-  .subtitle { color: #5F5E5A; font-size: 13px; margin-top: 0; margin-bottom: 2rem; }
+          background: #F1EFE8; margin: 0; padding: 2rem 1.5rem; color: #2C2C2A; }
+  .page { max-width: 1140px; margin: 0 auto; }
+  h1 { font-size: 22px; font-weight: 600; margin-bottom: 4px; }
+  .subtitle { color: #5F5E5A; font-size: 13px; margin-top: 0; margin-bottom: 1.5rem; }
+  .map-section { background: #fff; border: 1px solid #D3D1C7; border-radius: 12px; padding: 1.25rem 1.5rem; margin-bottom: 1.5rem; }
+  .map-legend { display: flex; flex-wrap: wrap; gap: 16px; font-size: 11px; color: #5F5E5A; margin-bottom: 10px; }
+  .legend-swatch { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 4px; vertical-align: -1px; }
+  #us-map { width: 100%; max-width: 720px; height: auto; display: block; margin: 0 auto; }
+  .map-hint { font-size: 11px; color: #888780; text-align: center; margin: 8px 0 0; }
   .race-card { background: #fff; border: 1px solid #D3D1C7; border-radius: 12px;
-                padding: 1.25rem 1.5rem; margin-bottom: 1.5rem; }
-  .race-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px; }
-  .chamber { font-size: 17px; font-weight: 600; margin: 0; }
+                padding: 1.5rem 1.75rem; margin-bottom: 1.5rem; }
+  .race-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 14px; }
+  .chamber { font-size: 18px; font-weight: 600; margin: 0; }
   .date { font-size: 12px; color: #5F5E5A; margin: 2px 0 0; }
   .badges { display: flex; gap: 6px; flex-wrap: wrap; }
   .badge { font-size: 11px; padding: 4px 10px; border-radius: 6px; white-space: nowrap; }
   .badge-empty { background: #F1EFE8; color: #888780; }
-  .candidates { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 14px; }
-  @media (max-width: 560px) { .candidates { grid-template-columns: 1fr; } }
-  .candidate { background: #F9F8F5; border-radius: 8px; padding: 12px; }
+  .candidates { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+  .bottom-grid { display: grid; grid-template-columns: 1fr 1.4fr; gap: 24px; }
+  @media (max-width: 800px) {
+    .candidates { grid-template-columns: 1fr; }
+    .bottom-grid { grid-template-columns: 1fr; }
+  }
+  .candidate { background: #F9F8F5; border-radius: 8px; padding: 14px; }
   .candidate-header { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
   .avatar { width: 32px; height: 32px; border-radius: 50%; background: #E6F1FB; color: #0C447C;
              display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: 12px; flex-shrink: 0; }
@@ -33,7 +42,7 @@
   .sources a { color: #185FA5; }
   .chips { display: flex; flex-wrap: wrap; gap: 4px; }
   .chip { font-size: 10px; background: #fff; border: 1px solid #D3D1C7; padding: 2px 8px; border-radius: 12px; color: #5F5E5A; }
-  .finance-section { border-top: 1px solid #D3D1C7; padding-top: 10px; margin-bottom: 10px; }
+  .finance-section { background: #F9F8F5; border-radius: 8px; padding: 14px; height: 100%; box-sizing: border-box; }
   .section-label { font-size: 10px; color: #888780; margin: 0 0 6px; text-transform: uppercase; letter-spacing: 0.04em; font-weight: 600; }
   .section-label a { text-transform: none; letter-spacing: normal; font-weight: 400; color: #185FA5; }
   .bar-row { display: flex; align-items: center; gap: 8px; margin-bottom: 5px; font-size: 11px; }
@@ -41,7 +50,7 @@
   .bar-track { flex: 1; background: #F1EFE8; border-radius: 4px; height: 10px; overflow: hidden; }
   .bar-fill { height: 100%; border-radius: 4px; }
   .bar-value { width: 70px; text-align: right; flex-shrink: 0; }
-  .polling-section { border-top: 1px solid #D3D1C7; padding-top: 10px; margin-bottom: 10px; }
+  .polling-section { margin-bottom: 14px; }
   .poll-row { margin-bottom: 10px; }
   .poll-meta { font-size: 11px; color: #5F5E5A; margin: 0 0 4px; }
   .poll-meta a { color: #185FA5; }
@@ -52,7 +61,7 @@
   .voting-table td { padding: 3px 0; }
   .voting-table td:first-child { color: #5F5E5A; }
   .voting-table td:last-child { text-align: right; }
-  .footer-note { font-size: 11px; color: #888780; margin: 10px 0 0; }
+  .footer-note { font-size: 11px; color: #888780; margin: 14px 0 0; }
   .muted { font-size: 12px; color: #888780; }
   .generated { font-size: 11px; color: #888780; text-align: center; margin-top: 2rem; }
 </style>
@@ -62,7 +71,191 @@
   <h1>Vox DC &mdash; 2026 election tracker</h1>
   <p class="subtitle">Internal tracker. Not for external distribution without review.</p>
   
-    <div class="race-card">
+    <div class="map-section">
+      <div class="map-legend">
+        <span><span class="legend-swatch" style="background:#F0C674;"></span>Toss-up</span>
+        <span><span class="legend-swatch" style="background:#BFDAF0;"></span>Lean D</span>
+        <span><span class="legend-swatch" style="background:#F0C9BC;"></span>Lean R</span>
+        <span><span class="legend-swatch" style="background:#D3D1C7;"></span>Tracked, unrated</span>
+        <span><span class="legend-swatch" style="background:#E8E6DD;"></span>Not yet tracked</span>
+      </div>
+      <svg id="us-map" viewBox="0 0 975 610" preserveAspectRatio="xMidYMid meet"></svg>
+      <p class="map-hint">Click a highlighted state to jump to its race card. States-level map for now -- district drill-down comes once House races are added.</p>
+    </div>
+    <script id="race-map-data" type="application/json">{"AK": {"race_ids": ["AK-SEN"], "fill": "#F0C674", "label": "Toss Up"}, "ME": {"race_ids": ["ME-SEN"], "fill": "#F0C674", "label": "Toss Up"}, "OH": {"race_ids": ["OH-SEN"], "fill": "#F0C674", "label": "Toss Up"}}</script>
+    <script id="state-names" type="application/json">{"Alabama": "AL", "Alaska": "AK", "Arizona": "AZ", "Arkansas": "AR", "California": "CA", "Colorado": "CO", "Connecticut": "CT", "Delaware": "DE", "Florida": "FL", "Georgia": "GA", "Hawaii": "HI", "Idaho": "ID", "Illinois": "IL", "Indiana": "IN", "Iowa": "IA", "Kansas": "KS", "Kentucky": "KY", "Louisiana": "LA", "Maine": "ME", "Maryland": "MD", "Massachusetts": "MA", "Michigan": "MI", "Minnesota": "MN", "Mississippi": "MS", "Missouri": "MO", "Montana": "MT", "Nebraska": "NE", "Nevada": "NV", "New Hampshire": "NH", "New Jersey": "NJ", "New Mexico": "NM", "New York": "NY", "North Carolina": "NC", "North Dakota": "ND", "Ohio": "OH", "Oklahoma": "OK", "Oregon": "OR", "Pennsylvania": "PA", "Rhode Island": "RI", "South Carolina": "SC", "South Dakota": "SD", "Tennessee": "TN", "Texas": "TX", "Utah": "UT", "Vermont": "VT", "Virginia": "VA", "Washington": "WA", "West Virginia": "WV", "Wisconsin": "WI", "Wyoming": "WY", "District of Columbia": "DC"}</script>
+    <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+    <script src="https://cdn.jsdelivr.net/npm/topojson-client@3"></script>
+    <script>
+    (function() {
+      const raceData = JSON.parse(document.getElementById('race-map-data').textContent);
+      const stateNames = JSON.parse(document.getElementById('state-names').textContent);
+      const untrackedFill = "#E8E6DD";
+
+      const svg = d3.select("#us-map");
+      const projection = d3.geoAlbersUsa().scale(1300).translate([487.5, 305]);
+      const path = d3.geoPath(projection);
+
+      d3.json("https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json").then(function(us) {
+        const states = topojson.feature(us, us.objects.states).features;
+
+        svg.selectAll("path")
+          .data(states)
+          .join("path")
+          .attr("d", path)
+          .attr("stroke", "#fff")
+          .attr("stroke-width", 1)
+          .attr("fill", function(d) {
+            const abbr = stateNames[d.properties.name];
+            const entry = raceData[abbr];
+            return entry ? entry.fill : untrackedFill;
+          })
+          .style("cursor", function(d) {
+            const abbr = stateNames[d.properties.name];
+            return raceData[abbr] ? "pointer" : "default";
+          })
+          .on("click", function(event, d) {
+            const abbr = stateNames[d.properties.name];
+            const entry = raceData[abbr];
+            if (entry && entry.race_ids.length) {
+              const el = document.getElementById("race-" + entry.race_ids[0]);
+              if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+            }
+          })
+          .append("title")
+          .text(function(d) {
+            const abbr = stateNames[d.properties.name];
+            const entry = raceData[abbr];
+            return entry ? (d.properties.name + ": " + entry.label) : d.properties.name;
+          });
+      });
+    })();
+    </script>
+    
+  
+    <div class="race-card" id="race-AK-SEN">
+      <div class="race-header">
+        <div>
+          <p class="chamber">Alaska Senate</p>
+          <p class="date">General election 2026-11-03</p>
+        </div>
+        <div class="badges">
+          <span class="badge" style="background:#FAEEDA;color:#854F0B;">Cook: Toss Up</span>
+          <span class="badge" style="background:#FAEEDA;color:#854F0B;">Crystal Ball: Toss-up</span>
+        </div>
+      </div>
+      <div class="candidates">
+    <div class="candidate">
+      <div class="candidate-header">
+        <div class="avatar">DS</div>
+        <div>
+          <p class="name">Dan Sullivan (R)</p>
+          <p class="role">Incumbent US Senator</p>
+        </div>
+      </div>
+      <p class="section-label">Background</p>
+      <p class="background">Dan Sullivan is the incumbent Republican U.S. Senator from Alaska, having served since January 2015 after previously serving as Alaska Attorney General and Commissioner of the Alaska Department of Natural Resources; he is a retired U.S. Marine Corps Colonel and is seeking a third term in 2026. (<a href="https://ballotpedia.org/Daniel_S._Sullivan_(United_States_Senator_from_Alaska)" target="_blank" rel="noopener">source</a>)</p>
+      <p class="section-label" style="margin-top:10px;">Current storyline</p>
+      <p class="storyline">The Sullivan race has been dominated by a controversy over a same-named challenger, Dan J. Sullivan of Petersburg, whose late-filed candidacy Republicans and the incumbent's campaign allege was designed to confuse voters and siphon support to help Democrat Mary Peltola. Alaska's Division of Elections initially disqualified the challenger, but courts—first a Superior Court judge and then the Alaska Supreme Court—ordered him reinstated on the primary ballot, while the NRSC filed an FEC complaint alleging coordination between the challenger and a Democratic consultant. NBC News has since reported that the FBI, the Alaska attorney general's office, and the U.S. attorney's office are investigating whether the challenger's campaign was part of a conspiracy to confuse voters, though Peltola's campaign has denied any involvement. The episode has unfolded alongside a broader, closely watched contest between Sullivan and Peltola that both parties view as pivotal to Senate control in 2026.</p><p class="sources"><a href="https://www.nbcnews.com/politics/2026-election/dan-sullivan-saga-alaska-senate-race-investigation-sources-say-rcna352679" target="_blank" rel="noopener">source</a> &middot; <a href="https://alaskapublic.org/news/politics/2026-06-26/judge-puts-2nd-dan-sullivan-back-on-ballot-in-alaskas-u-s-senate-race" target="_blank" rel="noopener">source</a> &middot; <a href="https://news.ballotpedia.org/2026/06/30/alaska-supreme-court-rules-that-dan-sullivan-must-appear-on-the-states-u-s-senate-ballot-this-year/" target="_blank" rel="noopener">source</a></p>
+      <p class="section-label" style="margin-top:10px;">Endorsements</p>
+      <div class="chips"><span class="chip">President Donald Trump</span><span class="chip">Sen. Lisa Murkowski</span><span class="chip">National Republican Senatorial Committee</span><span class="chip">Alaska Republican Party</span><span class="chip">ANCSA Regional Association</span><span class="chip">Americans for Prosperity Action</span></div>
+    </div>
+    
+    <div class="candidate">
+      <div class="candidate-header">
+        <div class="avatar">MP</div>
+        <div>
+          <p class="name">Mary Peltola (D)</p>
+          <p class="role"></p>
+        </div>
+      </div>
+      <p class="section-label">Background</p>
+      <p class="background">Mary Peltola is a Democrat and former U.S. Representative for Alaska's at-large congressional district, where she served from 2022 to 2025 as the first Alaska Native person elected to Congress before narrowly losing re-election in 2024 to Nick Begich III. On January 12, 2026, she announced her campaign to challenge Republican incumbent Sen. Dan Sullivan in the 2026 Alaska Senate race. (<a href="https://ballotpedia.org/Mary_Peltola" target="_blank" rel="noopener">source</a>)</p>
+      <p class="section-label" style="margin-top:10px;">Current storyline</p>
+      <p class="storyline">The race has been defined by its unusual competitiveness for a heavily Republican-leaning state, with polling showing the contest within a few points throughout the year. A late-June/early-July New York Times/Siena poll found Sullivan leading Peltola 47%-45% among likely voters, a result that contradicted Peltola campaign messaging and differed from Alaska Survey Research polls showing Peltola with a roughly five-point lead. The race has also been shaped by Sen. Lisa Murkowski's decision to back Sullivan despite having endorsed Peltola in the past and describing her as a long-time friend, saying she believes keeping a Republican Senate majority is in Alaska's best interest. Additional coverage has focused on a separate ballot controversy involving a like-named Republican challenger, Dan J. Sullivan, whom Sen. Sullivan's campaign called a 'sham candidate' after he was initially removed from and then restored to the ballot by courts.</p><p class="sources"><a href="https://alaskawatchman.com/2026/07/01/sullivan-holds-slim-lead-over-peltola-in-nyt-alaska-senate-poll/" target="_blank" rel="noopener">source</a> &middot; <a href="https://thealaskastory.com/nyt-siena-poll-shows-sullivan-ahead-in-alaska-senate-race-contradicting-peltola-campaigns-claims/" target="_blank" rel="noopener">source</a> &middot; <a href="https://alaskabeacon.com/2026/01/12/mary-peltola-announces-run-for-alaska-u-s-senate-challenging-incumbent-dan-sullivan/" target="_blank" rel="noopener">source</a></p>
+      <p class="section-label" style="margin-top:10px;">Endorsements</p>
+      <div class="chips"><span class="chip">EMILYs List</span><span class="chip">End Citizens United</span><span class="chip">SEIU 775</span><span class="chip">Alaska Democratic Party (Chair Eric Croft)</span></div>
+    </div>
+    </div>
+      <div class="bottom-grid">
+        <div>
+    <div class="finance-section">
+      <p class="section-label">Cash on hand</p>
+      
+    <div class="bar-row">
+      <span class="bar-label">Sullivan</span>
+      <div class="bar-track"><div class="bar-fill" style="width:100%; background:#D85A30;"></div></div>
+      <span class="bar-value">$7,086,053</span>
+    </div>
+    
+    <div class="bar-row">
+      <span class="bar-label">Peltola</span>
+      <div class="bar-track"><div class="bar-fill" style="width:81%; background:#378ADD;"></div></div>
+      <span class="bar-value">$5,727,109</span>
+    </div>
+    
+      <p class="section-label" style="margin-top:10px;">Total spent</p>
+      
+    <div class="bar-row">
+      <span class="bar-label">Sullivan</span>
+      <div class="bar-track"><div class="bar-fill" style="width:51%; background:#D85A30;"></div></div>
+      <span class="bar-value">$1,505,700</span>
+    </div>
+    
+    <div class="bar-row">
+      <span class="bar-label">Peltola</span>
+      <div class="bar-track"><div class="bar-fill" style="width:100%; background:#378ADD;"></div></div>
+      <span class="bar-value">$2,934,554</span>
+    </div>
+    
+    </div>
+    </div>
+        <div>
+          <div class="polling-section">
+            <p class="section-label">Recent polling</p>
+            
+    <div class="poll-row">
+      <p class="poll-meta">New York Times/Siena College &middot; 2026-06-29 &middot; <a href="https://thealaskastory.com/nyt-siena-poll-shows-sullivan-ahead-in-alaska-senate-race-contradicting-peltola-campaigns-claims/" target="_blank" rel="noopener">source</a></p>
+      <div class="poll-bar">
+        <div class="poll-seg" style="width:51%; background:#D85A30;">Sullivan 47%</div>
+        <div class="poll-seg" style="width:49%; background:#378ADD;">Peltola 45%</div>
+      </div>
+    </div>
+    
+    <div class="poll-row">
+      <p class="poll-meta">Alaska Survey Research &middot; 2026-06-07 &middot; <a href="https://www.newsweek.com/map-shows-trump-approval-rating-in-each-state-with-critical-senate-races-12121560" target="_blank" rel="noopener">source</a></p>
+      <div class="poll-bar">
+        <div class="poll-seg" style="width:47%; background:#D85A30;">Sullivan 44%</div>
+        <div class="poll-seg" style="width:53%; background:#378ADD;">Peltola 49%</div>
+      </div>
+    </div>
+    
+    <div class="poll-row">
+      <p class="poll-meta">Alaska Survey Research &middot; 2026-01-11 &middot; <a href="https://www.newsweek.com/democrat-mary-peltola-edges-out-incumbent-republican-in-alaska-senate-poll-11361333" target="_blank" rel="noopener">source</a></p>
+      <div class="poll-bar">
+        <div class="poll-seg" style="width:49%; background:#D85A30;">Sullivan 46.4%</div>
+        <div class="poll-seg" style="width:51%; background:#378ADD;">Peltola 48%</div>
+      </div>
+    </div>
+    
+          </div>
+          
+    <div class="voting-section">
+      <p class="section-label">Key dates &middot; <a href="https://www.elections.alaska.gov/voter-information/absentee-and-early-voting/" target="_blank" rel="noopener">source</a></p>
+      <table class="voting-table">
+        <tr><td>Register by</td><td>Oct 4, 2026 (30 days before Election Day)</td></tr>
+        <tr><td>Request mail ballot by</td><td>Oct 24, 2026</td></tr>
+        <tr><td>Early voting window</td><td>Oct 19 – Nov 3, 2026</td></tr>
+        <tr><td>Return ballot by</td><td>Postmarked or received by Nov 3, 2026 (8:00 PM if returned in person)</td></tr>
+      </table>
+    </div>
+    
+        </div>
+      </div>
+      <p class="footer-note">Last updated Jul 7, 2026 7:15 PM ET</p>
+    </div>
+    
+    <div class="race-card" id="race-ME-SEN">
       <div class="race-header">
         <div>
           <p class="chamber">Maine Senate</p>
@@ -106,7 +299,8 @@
       <p class="muted">None on file</p>
     </div>
     </div>
-      
+      <div class="bottom-grid">
+        <div>
     <div class="finance-section">
       <p class="section-label">Cash on hand</p>
       
@@ -137,10 +331,11 @@
     </div>
     
     </div>
-    
-      <div class="polling-section">
-        <p class="section-label">Recent polling</p>
-        
+    </div>
+        <div>
+          <div class="polling-section">
+            <p class="section-label">Recent polling</p>
+            
     <div class="poll-row">
       <p class="poll-meta">New York Times/Portland Press Herald/Siena College &middot; 2026-06-26 &middot; <a href="https://www.newsweek.com/collins-leads-maine-senate-race-but-platner-ahead-with-key-group-poll-12148136" target="_blank" rel="noopener">source</a></p>
       <div class="poll-bar">
@@ -165,8 +360,8 @@
       </div>
     </div>
     
-      </div>
-      
+          </div>
+          
     <div class="voting-section">
       <p class="section-label">Key dates &middot; <a href="https://fairelectionscenter.org/map/maine/" target="_blank" rel="noopener">source</a></p>
       <table class="voting-table">
@@ -177,10 +372,134 @@
       </table>
     </div>
     
+        </div>
+      </div>
       <p class="footer-note">Last updated Jul 7, 2026 9:40 PM ET</p>
     </div>
     
-  <p class="generated">Site generated Jul 7, 2026 9:45 PM ET</p>
+    <div class="race-card" id="race-OH-SEN">
+      <div class="race-header">
+        <div>
+          <p class="chamber">Ohio Senate</p>
+          <p class="date">General election 2026-11-03</p>
+        </div>
+        <div class="badges">
+          <span class="badge" style="background:#FAEEDA;color:#854F0B;">Cook: Toss Up</span>
+          <span class="badge" style="background:#FAEEDA;color:#854F0B;">Crystal Ball: Toss-up</span>
+        </div>
+      </div>
+      <div class="candidates">
+    <div class="candidate">
+      <div class="candidate-header">
+        <div class="avatar">JH</div>
+        <div>
+          <p class="name">Jon Husted (R)</p>
+          <p class="role">Incumbent US Senator (appointed)</p>
+        </div>
+      </div>
+      <p class="section-label">Background</p>
+      <p class="background">Jon Husted served as Ohio Secretary of State (2011–2019) and lieutenant governor under Gov. Mike DeWine (2019–2025) before Gov. DeWine appointed him to the U.S. Senate in January 2025 to fill the vacancy left by JD Vance, who resigned to become vice president; Husted previously served in the Ohio House (including as speaker) and Ohio Senate. (<a href="https://ballotpedia.org/Jon_Husted" target="_blank" rel="noopener">source</a>)</p>
+      <p class="section-label" style="margin-top:10px;">Current storyline</p>
+      <p class="storyline">Husted, running to keep the seat he was appointed to, faces Democratic former Senator Sherrod Brown in a race widely rated a toss-up despite Ohio's recent Republican lean. Husted secured President Trump's early endorsement and has emphasized ties to Trump in his campaign advertising, while also touting several labor union endorsements he flipped from Brown's 2024 coalition. Public polling has been volatile and conflicting, with some surveys (Fox News, AARP) showing Brown ahead by several points and others (New York Times/Siena, Emerson) showing Husted with a narrow lead, underscoring how competitive the contest has become. In March 2026, Husted also testified for the defense in the FirstEnergy bribery scandal criminal trial, describing a 2018 dinner meeting with then governor-elect DeWine and FirstEnergy executives later indicted in the $60 million bribery scheme.</p><p class="sources"><a href="https://www.newsweek.com/sherrod-brown-jon-husted-ohio-senate-race-poll-12122669" target="_blank" rel="noopener">source</a> &middot; <a href="https://thehill.com/homenews/campaign/5909836-ohio-senate-race-brown-husted/" target="_blank" rel="noopener">source</a> &middot; <a href="https://www.nbc4i.com/news/local-news/columbus/new-poll-finds-husted-narrowly-leading-brown-ohio-governors-race-tied/" target="_blank" rel="noopener">source</a></p>
+      <p class="section-label" style="margin-top:10px;">Endorsements</p>
+      <div class="chips"><span class="chip">President Donald Trump</span><span class="chip">Ohio Republican Party</span><span class="chip">Ohio Senate Republican Caucus</span><span class="chip">Ohio Auditor Keith Faber</span><span class="chip">Rep. Max Miller</span><span class="chip">Rep. Warren Davidson</span><span class="chip">Rep. Dave Joyce</span><span class="chip">Rep. Bob Latta</span><span class="chip">Rep. Jim Jordan</span><span class="chip">Rep. Troy Balderson</span><span class="chip">Ohio Cattlemen's Association</span><span class="chip">NFIB (National Federation of Independent Business)</span><span class="chip">Susan B. Anthony Pro-Life America</span><span class="chip">Ohio Right to Life</span><span class="chip">Sentinel Action Fund</span><span class="chip">International Union of Operating Engineers Local 18</span><span class="chip">International Union of Operating Engineers Local 66</span><span class="chip">Northwest Ohio Building and Construction Trades Council</span></div>
+    </div>
+    
+    <div class="candidate">
+      <div class="candidate-header">
+        <div class="avatar">SB</div>
+        <div>
+          <p class="name">Sherrod Brown (D)</p>
+          <p class="role">Former US Senator</p>
+        </div>
+      </div>
+      <p class="section-label">Background</p>
+      <p class="background">Sherrod Brown served three terms as a U.S. Senator from Ohio (2007–2025) after previously serving as Ohio Secretary of State (1983–1991) and as U.S. Representative for Ohio's 13th District (1993–2007); he lost his 2024 re-election bid to Republican Bernie Moreno and is now running in the 2026 special election to fill the remainder of JD Vance's term. (<a href="https://ballotpedia.org/Sherrod_Brown" target="_blank" rel="noopener">source</a>)</p>
+      <p class="section-label" style="margin-top:10px;">Current storyline</p>
+      <p class="storyline">Brown, attempting a political comeback after his 2024 loss, is running against Republican incumbent Jon Husted (appointed to the seat after JD Vance became vice president) in a race both parties see as pivotal to Senate control. The campaign has centered on affordability and health care, with Brown attacking Husted over ACA subsidy votes and rising prices while Husted blames Brown's 32-year Washington record for current problems. In June 2026, both campaigns ran dueling ads accusing each other's donors of ties to Jeffrey Epstein associates, a story fact-checked by PolitiFact. Brown has maintained a fundraising advantage, reporting far more cash on hand than Husted, even as the two campaigns and outside groups are expected to spend record sums in what is being called one of the most expensive Senate races in the country.</p><p class="sources"><a href="https://www.notus.org/ohio/affordability-sherrod-brown-jon-husted-senate-ads" target="_blank" rel="noopener">source</a> &middot; <a href="https://www.statenews.org/government-politics/2025-12-31/ohios-2026-us-senate-race-husted-brown-focus-in-on-health-care-cost" target="_blank" rel="noopener">source</a> &middot; <a href="https://www.politifact.com/article/2026/jun/08/epstein-ohio-senate-husted-brown-donations/" target="_blank" rel="noopener">source</a></p>
+      <p class="section-label" style="margin-top:10px;">Endorsements</p>
+      <div class="chips"><span class="chip">Ohio AFL-CIO</span><span class="chip">Ohio Federation of Teachers (OFT)</span><span class="chip">United Steelworkers</span><span class="chip">Actors' Equity Association</span><span class="chip">Chuck Schumer (Senate Minority Leader, recruited Brown to run)</span></div>
+    </div>
+    </div>
+      <div class="bottom-grid">
+        <div>
+    <div class="finance-section">
+      <p class="section-label">Cash on hand</p>
+      
+    <div class="bar-row">
+      <span class="bar-label">Husted</span>
+      <div class="bar-track"><div class="bar-fill" style="width:48%; background:#D85A30;"></div></div>
+      <span class="bar-value">$8,167,482</span>
+    </div>
+    
+    <div class="bar-row">
+      <span class="bar-label">Brown</span>
+      <div class="bar-track"><div class="bar-fill" style="width:100%; background:#378ADD;"></div></div>
+      <span class="bar-value">$17,028,642</span>
+    </div>
+    
+      <p class="section-label" style="margin-top:10px;">Total spent</p>
+      
+    <div class="bar-row">
+      <span class="bar-label">Husted</span>
+      <div class="bar-track"><div class="bar-fill" style="width:26%; background:#D85A30;"></div></div>
+      <span class="bar-value">$2,360,332</span>
+    </div>
+    
+    <div class="bar-row">
+      <span class="bar-label">Brown</span>
+      <div class="bar-track"><div class="bar-fill" style="width:100%; background:#378ADD;"></div></div>
+      <span class="bar-value">$8,951,326</span>
+    </div>
+    
+    </div>
+    </div>
+        <div>
+          <div class="polling-section">
+            <p class="section-label">Recent polling</p>
+            
+    <div class="poll-row">
+      <p class="poll-meta">New York Times/Siena College &middot; 2026-06-29 &middot; <a href="https://www.nbc4i.com/news/local-news/columbus/new-poll-finds-husted-narrowly-leading-brown-ohio-governors-race-tied/" target="_blank" rel="noopener">source</a></p>
+      <div class="poll-bar">
+        <div class="poll-seg" style="width:52%; background:#D85A30;">Husted 50%</div>
+        <div class="poll-seg" style="width:48%; background:#378ADD;">Brown 47%</div>
+      </div>
+    </div>
+    
+    <div class="poll-row">
+      <p class="poll-meta">Fox News/Beacon-Shaw &middot; 2026-06-01 &middot; <a href="https://www.newsweek.com/sherrod-brown-jon-husted-ohio-senate-race-poll-12122669" target="_blank" rel="noopener">source</a></p>
+      <div class="poll-bar">
+        <div class="poll-seg" style="width:46%; background:#D85A30;">Husted 45%</div>
+        <div class="poll-seg" style="width:54%; background:#378ADD;">Brown 53%</div>
+      </div>
+    </div>
+    
+    <div class="poll-row">
+      <p class="poll-meta">AARP &middot; 2026-06-16 &middot; <a href="https://www.newsweek.com/sherrod-brown-jon-husted-ohio-senate-race-poll-12122669" target="_blank" rel="noopener">source</a></p>
+      <div class="poll-bar">
+        <div class="poll-seg" style="width:48%; background:#D85A30;">Husted 45%</div>
+        <div class="poll-seg" style="width:52%; background:#378ADD;">Brown 48%</div>
+      </div>
+    </div>
+    
+          </div>
+          
+    <div class="voting-section">
+      <p class="section-label">Key dates &middot; <a href="https://www.usvotefoundation.org/ohio-election-dates-and-deadlines" target="_blank" rel="noopener">source</a></p>
+      <table class="voting-table">
+        <tr><td>Register by</td><td>Oct 5, 2026</td></tr>
+        <tr><td>Request mail ballot by</td><td>Oct 27, 2026 (7 days before)</td></tr>
+        <tr><td>Early voting window</td><td>Begins Oct 6, 2026</td></tr>
+        <tr><td>Return ballot by</td><td>Received by Election Day, Nov 3, 2026 -- Ohio eliminated its mail grace period in Dec 2025, postmark alone no longer counts</td></tr>
+      </table>
+    </div>
+    
+        </div>
+      </div>
+      <p class="footer-note">Last updated Jul 7, 2026 7:15 PM ET</p>
+    </div>
+    
+  <p class="generated">Site generated Jul 7, 2026 11:32 PM ET</p>
 </div>
 </body>
 </html>
